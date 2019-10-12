@@ -6,7 +6,7 @@ dict_file = 'txt/cedict_ts.u8'
 pinyin_file = 'txt/all_pinyin.txt'
 
 #Split a Chinese sentences into its words and punctuation
-def split_zh_words(sentence, zh_dict) -> 'list':
+def split_zh_words(sentence, zh_dict):
     sentence.replace(" ","") #remove whitespace
     if sentence == '':
         return []
@@ -22,7 +22,7 @@ def split_zh_words(sentence, zh_dict) -> 'list':
     return [word] + split_zh_words(sentence[wordlen:],zh_dict)
 
 #returns a set of all words in a file
-def word_set(filename) -> 'set':
+def word_set(filename):
     all_words = set()
     for line in open(filename):
         for word in line.split():
@@ -30,14 +30,14 @@ def word_set(filename) -> 'set':
     return all_words
 
 #returns an item that is a valid chinese word, AKA not punctuation from a list
-def rand_zh(words:"list") -> "string":
+def rand_zh(words):
     word = words[random.randint(0, len(words)-1)]
     while word not in zh_dict:
         word = words[random.randint(0, len(words)-1)]
     return word
 
 #generates a number of possible choices for the pinyin, one of which is correct
-def gen_choices(word:"string", count:"int", zh_dict:"ZH_Dict", pinyin_set:"set") -> "list":
+def gen_choices(word, count, zh_dict, pinyin_set):
     assert count >= 1
     choices = [zh_dict.pinyin(word)] #begin with the correct answer
     while len(choices) < count:
@@ -49,7 +49,7 @@ def gen_choices(word:"string", count:"int", zh_dict:"ZH_Dict", pinyin_set:"set")
 
 #from a list of chinese words, takes a word and generates a question
 #returns a tuple in the form (chinese chars, correct pinyin, list of possible answers)
-def gen_question(wordlist, answer_count, zh_dict, pinyin_set) -> "tuple":
+def gen_question(wordlist, answer_count, zh_dict, pinyin_set):
     word = rand_zh(words)
     py = zh_dict.pinyin(word)
     choices = gen_choices(word, answer_count, zh_dict, pinyin_set)
