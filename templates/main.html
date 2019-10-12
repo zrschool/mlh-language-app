@@ -14,11 +14,15 @@
         <p>Which hiragana character corresponds to {{answer}}?</p>
         <!-- TODO: Make for loop that generates response choices for the
                    quiz question. -->
-         <ol type="A">
-           {% for answer_choice in answer_options %}
-            <li><button type="button" name="button">{{answer_choice}}</button></li>
-           {% endfor %}
-         </ol>
+        <form>
+          <ol type="A">
+            {% for answer_choice in answer_options %}
+
+              <li><input type="radio" name="answer" value="other"> {{answer_choice}}</li>
+            {% endfor %}
+          </ol>
+          <input type="submit" value="Check Answer">
+        </form>
       </div>
   </body>
 </html>
