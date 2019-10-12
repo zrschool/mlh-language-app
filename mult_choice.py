@@ -2,10 +2,10 @@ import random
 
 int_dict = {
     1: 'a',
-    2: 'b',
-    3: 'c',
-    4: 'd',
-    5: 'e'
+    2: 'e',
+    3: 'i',
+    4: 'o',
+    5: 'u',
 }
 
 char_dict = {
@@ -19,9 +19,9 @@ char_dict = {
 # for key in char_dict:
 #     print(char_dict[key])
 
-y = random.randint(1, 5)
-print(str(char_dict.get(int_dict.get(y))) + "\n")
-answer_option = [int_dict.get(y)]
+random_int = random.randint(1, 5)
+print(str(char_dict.get(int_dict.get(random_int))) + "\n")
+answer_option = [int_dict.get(random_int)]
 x = 0
 while x < 2:
     z = random.randint(1,5)
@@ -30,4 +30,5 @@ while x < 2:
         x += 1
 while len(answer_option) > 0:
     z = random.randint(0, len(answer_option) - 1)
-    print(answer_option.pop(z))
+    print(answer_option[z])
+    answer_option.pop(z)

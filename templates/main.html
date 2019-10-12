@@ -2,10 +2,23 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Hiragana Quiz</title>
   </head>
   <body>
-    {{x}}
-    Hello Michael
+    <div id="header">
+      Hiragana Quiz
+    </div>
+    <!-- TODO: Make for loop which creates randomly generated quiz questions -->
+      <div id="quiz-question">
+          <p>Which hiragana character corresponds to "a"?</p>
+          <!-- TODO: Make for loop that generates response choices for the
+                     quiz question. -->
+           <ol type="A">
+             {% for key, value in answer_choices.iteritems() %}
+             <li>{{answer_choices["key"]}}</li>
+             {% endfor %}
+           </ol>
+           {{test}}
+      </div>
   </body>
 </html>
