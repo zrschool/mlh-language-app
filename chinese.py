@@ -56,16 +56,16 @@ def gen_question(wordlist, answer_count, zh_dict, pinyin_set) -> "tuple":
     
     return (word, py, choices)
 
-print("Loading dictionary...")
+#print("Loading dictionary...")
 zh_dict = ZH_Dict(dict_file)
-print("Dictionary Loaded.")
-words = split_zh_words("贸易是自願的貨品或服務交換。貿易也被稱為商業。", zh_dict)
-print(words)
+#print("Dictionary Loaded.")
+#words = split_zh_words("贸易是自願的貨品或服務交換。貿易也被稱為商業。", zh_dict)
+#print(words)
 
 pinyin_set = word_set(pinyin_file)
 
 #generates a word and some incorrect choices for the multiple choice
-print (gen_question(words, 3, zh_dict, pinyin_set))
+#print (gen_question(words, 3, zh_dict, pinyin_set))
     
     
     
