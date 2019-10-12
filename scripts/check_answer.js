@@ -18,6 +18,7 @@ if ('{{answer}}' == '\u3042') {
 
 if (answer == answer_choice) {
   alert('Correct!');
+  document.location.reload();
 } else {
   alert('Incorrect!');
 }
