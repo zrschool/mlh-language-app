@@ -16,9 +16,11 @@ char_dict = {
     'u': u'\u3046',
 }
 
+# for key in char_dict:
+#     print(char_dict[key])
 
 y = random.randint(1, 5)
-print(char_dict.get(str(int_dict.get(y))) + "\n")
+print(str(char_dict.get(int_dict.get(y))) + "\n")
 answer_option = [int_dict.get(y)]
 x = 0
 while x < 2:
