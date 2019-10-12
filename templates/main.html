@@ -11,12 +11,12 @@
     </div>
     <!-- TODO: Make for loop which creates randomly generated quiz questions -->
       <div id="quiz-question">
-        <p>Which hiragana character corresponds to "a"?</p>
+        <p>Which hiragana character corresponds to {{answer}}?</p>
         <!-- TODO: Make for loop that generates response choices for the
                    quiz question. -->
          <ol type="A">
-           {% for key, value in answer_choices.iteritems() %}
-           <li><button type="button" name="button">{{answer_choices["value"]}}</button></li>
+           {% for answer_choice in answer_options %}
+           <li><button type="button" name="button">{{answer_choice}}</button></li>
            {% endfor %}
          </ol>
       </div>
