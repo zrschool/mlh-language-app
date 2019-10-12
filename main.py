@@ -77,30 +77,7 @@ class MainPage(webapp2.RequestHandler):
     def post(self):
         pass
 
-class ChinesePage(webapp2.RequestHandler):
-    def get(self):
 
-        words = chinese.split_zh_words(open("txt/zh_sample.txt").read(), chinese.zh_dict)
-        
-        #(prompt, correct answer, choices)
-        problem = gen_question(words, 5, chinese.zh_dict, chinese.pinyin_set)
-
-        answer = problem[0]
-        answer_options = problem[2]
-
-        template_vars = {
-            # "<html_variable_name>" : <python_variable_name>
-            "answer_choices" : answer_choices,
-            "answer" : answer,
-            "answer_options" : answer_options,
-
-        }
-
-        template = jinja_env.get_template("templates/chinese.html")
-        self.response.write(template.render(template_vars))
-
-    def post(self):
-        pass
 
 app = webapp2.WSGIApplication([
     ("/", MainPage), ("/", ChinesePage)
