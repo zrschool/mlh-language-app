@@ -34,10 +34,10 @@ class ZH_Dict:
         return zh_dict
 
     def pinyin(self, word):
-        return zh_dict[word].pinyin
+        return self.zh_dict[word].pinyin
 
     def english(self, word):
-        return zh_dict[word].translation
+        return self.zh_dict[word].translation
 
     def __contains__(self, key):
         return key in self.zh_dict
