@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Hiragana Quiz</title>
+    <link rel="stylesheet" href="/stylesheets/master.css">
   </head>
   <body>
     <div id="header">
@@ -10,15 +11,14 @@
     </div>
     <!-- TODO: Make for loop which creates randomly generated quiz questions -->
       <div id="quiz-question">
-          <p>Which hiragana character corresponds to "a"?</p>
-          <!-- TODO: Make for loop that generates response choices for the
-                     quiz question. -->
-           <ol type="A">
-             {% for key, value in answer_choices.iteritems() %}
-             <li>{{answer_choices["key"]}}</li>
-             {% endfor %}
-           </ol>
-           {{test}}
+        <p>Which hiragana character corresponds to "a"?</p>
+        <!-- TODO: Make for loop that generates response choices for the
+                   quiz question. -->
+         <ol type="A">
+           {% for key, value in answer_choices.iteritems() %}
+           <li><button type="button" name="button">{{answer_choices["value"]}}</button></li>
+           {% endfor %}
+         </ol>
       </div>
   </body>
 </html>
