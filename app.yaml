@@ -13,6 +13,8 @@ handlers:
   script: main.app
 - url: /.*
   script: main.app
+- url: /d
+  script: main.app
 
 
 libraries:
