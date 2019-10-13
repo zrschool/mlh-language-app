@@ -1,7 +1,13 @@
+
 body {
   font-family: "Montserrat";
   color: #FFFFFF;
   background-color: #212121;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
 }
 
 #header {

@@ -5,7 +5,7 @@
     <title>Hiragana Quiz</title>
     <link rel="stylesheet" href="/stylesheets/master.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
-
+    
   </head>
   <body>
     <div id="header">
@@ -17,11 +17,11 @@
         <!-- TODO: Make for loop that generates response choices for the
                    quiz question. -->
         <form>
-          <ol type="A">
+          <ul>
             {% for answer_choice in answer_options %}
               <li><input type="radio" name="answer" value="{{answer_choice}}"> {{answer_choice}}</li>
             {% endfor %}
-          </ol>
+          </ul>
           <input
             type="button"
             value="Check Answer"
@@ -31,6 +31,6 @@ if(answer==answer_choice){alert('Correct!');document.location.reload()}else{aler
         </form>
       </div>
       <br>
-      <img src="https://media3.giphy.com/media/NvAW0FKVvsmA0/source.gif" alt="" width="200px">
+      <img src="https://media3.giphy.com/media/NvAW0FKVvsmA0/source.gif" alt="" width="400px">
   </body>
 </html>
