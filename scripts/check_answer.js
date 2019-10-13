@@ -12,8 +12,8 @@ if ('{{answer}}' == '\u3042') {
   answer = 'i';
 } else if ('{{answer}}' == '\u3046') {
   answer = 'u';
-} else {
-  answer = 'e';
+} else if ('{{answer}}' == '\u3049') {
+  answer = 'o';
 }
 
 if (answer == answer_choice) {
