@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Chinese Character Quiz</title>
+    <link rel="stylesheet" href="/stylesheets/master.css">
+        <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="header">
+      Chinese Character Quiz
+    </div>
+    <!-- TODO: Make for loop which creates randomly generated quiz questions -->
+      <div id="quiz-question">
+        <p>Which pinyin corresponds to {{answer}}?</p>
+        <!-- TODO: Make for loop that generates response choices for the
+                   quiz question. -->
+         <ul>
+           {% for answer_choice in answer_options %}
+           <li><button type="button" name="button">{{answer_choice}}</button></li>
+           {% endfor %}
+         </ul>
+      </div>
+  </body>
+</html>

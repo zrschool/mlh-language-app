@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Chinese Character Quiz</title>
+    <meta charset="utf-8">
+    <title>Hiragana Quiz</title>
     <link rel="stylesheet" href="/stylesheets/master.css">
-        <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+    
   </head>
   <body>
     <div id="header">
@@ -14,11 +16,21 @@
         <p>Which pinyin corresponds to {{answer}}?</p>
         <!-- TODO: Make for loop that generates response choices for the
                    quiz question. -->
-         <ul>
-           {% for answer_choice in answer_options %}
-           <li><button type="button" name="button">{{answer_choice}}</button></li>
-           {% endfor %}
-         </ul>
+        <form>
+          <ul>
+            {% for answer_choice in answer_options %}
+              <li><input type="radio" name="answer" value="{{answer_choice}}"> {{answer_choice}}</li>
+            {% endfor %}
+          </ul>
+          <input
+            type="button"
+            value="Check Answer"
+                        onclick="var answer_choice=document.querySelector('input[name=answer]:checked').value;console.log(answer_choice)
+var answer='{{correct_ans}}';
+if(answer==answer_choice){alert('Correct!');document.location.reload()}else{alert('Incorrect!')}">
+        </form>
       </div>
+      <br>
+      <img src="https://media3.giphy.com/media/NvAW0FKVvsmA0/source.gif" alt="" width="400px">
   </body>
 </html>
