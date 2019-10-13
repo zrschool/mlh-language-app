@@ -14,11 +14,11 @@
         <p>Which pinyin corresponds to {{answer}}?</p>
         <!-- TODO: Make for loop that generates response choices for the
                    quiz question. -->
-         <ol type="A">
+         <ul>
            {% for answer_choice in answer_options %}
            <li><button type="button" name="button">{{answer_choice}}</button></li>
            {% endfor %}
-         </ol>
+         </ul>
       </div>
   </body>
 </html>
