@@ -1,3 +1,4 @@
+# coding: utf8
 import collections
 
 Entry = collections.namedtuple('Entry', ('pinyin', 'translation'))
@@ -9,9 +10,9 @@ class ZH_Dict:
         self.zh_dict = self.load_zh_dict(file)
     
     #parses a line of the dictionary into (simplified, traditional, pinyin, translation)
-    def _parse_entry(self, line) -> 'tuple':
+    def _parse_entry(self, line):
         #example line
-        #彩畫 彩画 [cai3 hua4] /color painting/
+        #XX XX [cai3 hua4] /color painting/
         parse = line.split('[')
         zh_chars = parse[0].split(' ')
         py_trn = parse[1].split(']')
@@ -22,7 +23,7 @@ class ZH_Dict:
         return (simp, trad, pinyin, transl)
     
     #reads the chinese dictionary, maps chinese chars to pinyin and definition
-    def load_zh_dict(self, file) -> 'dict':
+    def load_zh_dict(self, file):
         zh_dict = {} #Chinese to pinyin and definition
         cedict = open(file, 'r')
 

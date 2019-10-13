@@ -1,3 +1,4 @@
+# coding: utf8
 import os
 import random
 import logging
@@ -77,8 +78,44 @@ class MainPage(webapp2.RequestHandler):
     def post(self):
         pass
 
+class ChinesePage(webapp2.RequestHandler):
+    def get(self):
+        print('start get')
+        lines = open("txt/zh_sample.txt").readlines()
+        print('read lines')
+        line = lines[random.randint(0, len(lines)-1)]
+
+        words = chinese.split_zh_words(line, chinese.zh_dict)
+        print('got words')
+        #(prompt, correct answer, choices)
+        problem = chinese.gen_question(words, 5, chinese.zh_dict, chinese.pinyin_set)
+        print('generated problem', problem)
+        answer = unicode(problem[0],"utf8", errors='ignore')
+        print('set answer')
+        answer_options = problem[2]
+        for i in range(0,len(answer_options)):
+            answer_options[i] = unicode(answer_options[i],"utf8", errors='ignore')
+        print('set options')
+        answer_choices = {}
+        print('b')
+        template_vars = {
+            # "<html_variable_name>" : <python_variable_name>
+            "answer_choices" : answer_choices,
+            "answer" : answer,
+            "answer_options" : answer_options,
+
+        }
+
+        template = jinja_env.get_template("templates/chinese.html")
+        self.response.write(template.render(template_vars))
+        print('a')
+
+    def post(self):
+        pass
+
 
 
 app = webapp2.WSGIApplication([
-    ("/", MainPage), ("/", ChinesePage)
+    ("/", MainPage),
+    ("/c", ChinesePage)
 ], debug=True)
