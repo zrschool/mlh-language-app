@@ -90,18 +90,20 @@ class ChinesePage(webapp2.RequestHandler):
         #(prompt, correct answer, choices)
         problem = chinese.gen_question(words, 5, chinese.zh_dict, chinese.pinyin_set)
         print('generated problem', problem)
+        
         answer = unicode(problem[0],"utf8", errors='ignore')
         print('set answer')
+        
         answer_options = problem[2]
         random.shuffle(answer_options)
         for i in range(0,len(answer_options)):
             answer_options[i] = unicode(answer_options[i],"utf8", errors='ignore')
         print('set options')
-        answer_choices = {}
-        print('b')
+        correct_ans = problem[1]
+
         template_vars = {
             # "<html_variable_name>" : <python_variable_name>
-            "answer_choices" : answer_choices,
+            "correct_ans" : correct_ans,
             "answer" : answer,
             "answer_options" : answer_options,
 
@@ -109,7 +111,6 @@ class ChinesePage(webapp2.RequestHandler):
 
         template = jinja_env.get_template("templates/chinese.html")
         self.response.write(template.render(template_vars))
-        print('a')
 
     def post(self):
         pass
